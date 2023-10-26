@@ -23,5 +23,6 @@ namespace КамиллаЗиятдинова320_Pet2.DB
     
         public virtual Human Human { get; set; }
         public virtual Vid Vid { get; set; }
+        public object Pet { get; internal set; }
     }
 }

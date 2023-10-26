@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using КамиллаЗиятдинова320_Pet2.DB;
 
 namespace КамиллаЗиятдинова320_Pet2.Pages
 {
@@ -20,6 +21,8 @@ namespace КамиллаЗиятдинова320_Pet2.Pages
     /// </summary>
     public partial class WorkListPage : Page
     {
+        public static List<Pet> pet { get; set; }
+        public static List<Vid> vid { get; set; }
         public WorkListPage()
         {
             InitializeComponent();
@@ -27,8 +30,8 @@ namespace КамиллаЗиятдинова320_Pet2.Pages
 
         private void SearchNameTB_TextChanged(object sender, TextChangedEventArgs e)
         {
-            WorkListLV.ItemsSource = new List<Work>(DBConnection.SalonEntities.Work.
-            Where(i => i.Price_List.Name_service.StartsWith(SearchNameTB.Text)));
+            WorkListLV.ItemsSource = new List<Pet>(DBConnection.PetEntities.Pet.
+            Where(i => i.Pet.Description.StartsWith(SearchNameTB.Text)));
         }
     }
 }
