@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using КамиллаЗиятдинова320_Pet2.DB;
 
+
 namespace КамиллаЗиятдинова320_Pet2.Pages
 {
     /// <summary>
@@ -26,12 +27,16 @@ namespace КамиллаЗиятдинова320_Pet2.Pages
         public WorkListPage()
         {
             InitializeComponent();
+            pet = new List<Pet>(DBConnection.PetEntities.Pet.ToList());
+            this.DataContext = this;
+            WorkListLV.ItemsSource = new List<Pet>(DBConnection.PetEntities.Pet.ToList());
+            vid = new List<Vid>(DBConnection.PetEntities.Vid.ToList());       
         }
 
         private void SearchNameTB_TextChanged(object sender, TextChangedEventArgs e)
         {
             WorkListLV.ItemsSource = new List<Pet>(DBConnection.PetEntities.Pet.
-            Where(i => i.Pet.Description.StartsWith(SearchNameTB.Text)));
+            Where(i => i.Description.StartsWith(SearchNameTB.Text)));
         }
     }
 }

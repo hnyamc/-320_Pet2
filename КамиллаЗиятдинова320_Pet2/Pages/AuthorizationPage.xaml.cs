@@ -25,6 +25,7 @@ namespace КамиллаЗиятдинова320_Pet2.Pages
         public AuthorizationPage()
         {
             InitializeComponent();
+
             string login = LoginTB.Text.Trim();
             string password = PasswordPB.Password.Trim();
 
@@ -34,6 +35,12 @@ namespace КамиллаЗиятдинова320_Pet2.Pages
                 NavigationService.Navigate(new MainMenuPage());
             else
                 MessageBox.Show("Ты не подходишь :)");
+            
+        }
+
+        private void ComeBTN_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new MainMenuPage());
         }
     }
 }

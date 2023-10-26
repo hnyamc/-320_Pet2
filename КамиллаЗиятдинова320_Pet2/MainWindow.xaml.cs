@@ -23,6 +23,7 @@ namespace КамиллаЗиятдинова320_Pet2
         public MainWindow()
         {
             InitializeComponent();
+            navFr.NavigationService.Navigate(new Pages.AuthorizationPage());
         }
     }
 }
