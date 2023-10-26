@@ -34,12 +34,13 @@
           Width="150"
           Height="50"
           VerticalAlignment="Center"
-          HorizontalAlignment="Center">
-            <ComboBoxItem>
+          HorizontalAlignment="Center"
+                       ItemsSource="{Binding Vid}">
+            <ComboBox.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock/>
+                    <TextBlock Text="{Binding Name}"></TextBlock>
                 </DataTemplate>
-            </ComboBoxItem>
+            </ComboBox.ItemTemplate>                   
         </ComboBox>
         <TextBlock Text="Выбери имя питомцу"
    Grid.Column="0"
@@ -54,12 +55,13 @@
   Width="150"
   Height="50"
   VerticalAlignment="Center"
-  HorizontalAlignment="Center">
-            <ComboBoxItem>
+  HorizontalAlignment="Center"
+                        ItemsSource="{Binding Pet}">
+            <ComboBox.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock/>
+                    <TextBlock Text="{Binding Name}"></TextBlock>
                 </DataTemplate>
-            </ComboBoxItem>
+            </ComboBox.ItemTemplate>
         </ComboBox>
         <TextBlock Text="Что делает питомец?"
            Grid.Column="2"
@@ -68,7 +70,7 @@
            HorizontalAlignment="Center"
            Foreground="DarkBlue"
            FontSize="20"/>
-        <TextBox x:Name="LoginTB"
+        <TextBox x:Name="DescripTB"
          Grid.Column="2"
             Grid.Row="1"
             FontStyle="Italic"
@@ -83,8 +85,9 @@
         FontStyle="Italic"
         Width="175"
         Height="50"
-        Background="#FF0D6CBF"/>
-        <Button x:Name="ZapisBTN"
+        Background="#FF0D6CBF"
+        Click="DobavBT_Click"/>
+        <Button x:Name="ZapisBTN"               
         Content="Записать"
         FontSize="20"
         Grid.Column="3"

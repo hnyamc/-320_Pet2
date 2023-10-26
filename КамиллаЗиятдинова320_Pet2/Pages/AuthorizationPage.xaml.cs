@@ -33,7 +33,7 @@ namespace КамиллаЗиятдинова320_Pet2.Pages
             if (currentUser != null)
                 NavigationService.Navigate(new MainMenuPage());
             else
-                MessageBox.Show("Ты не сотрудник :)");
+                MessageBox.Show("Ты не подходишь :)");
         }
     }
 }

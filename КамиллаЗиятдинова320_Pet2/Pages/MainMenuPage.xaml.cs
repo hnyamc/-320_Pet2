@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -44,19 +46,30 @@ namespace КамиллаЗиятдинова320_Pet2.Pages
 
 
 
-            work.ID_client = client.ID_client;
-            work.Date_work = DateDT.SelectedDate;
-            var t = SotCB.SelectedItem as Sotrydnic;
-            work.ID_sotrydnic = t.ID_sotrydnic;
-            var a = Type1CB.SelectedItem as Price_List;
-            work.Code_price = a.Code_price;
-            var b = TypeCB.SelectedItem as Type_service;
-            work.Code_type_service = b.Code_type_service;
-            DBConnection.SalonEntities.Work.Add(work);
-            DBConnection.SalonEntities.SaveChanges();
+            pet.ID_pet = pet.ID_pet;
+            pet.Description = DescripTB.Text;
+            var a = VidCB.SelectedItem as Vid;
+            pet.ID_vid = a.ID_vid;
+            var b = NameCB.SelectedItem as Pet;
+            pet.Name = b.Name;
+            DBConnection.PetEntities.Pet.Add(pet);
+            DBConnection.PetEntities.SaveChanges();
 
-            NavigationService.Navigate(new WorkList());
+            NavigationService.Navigate(new WorkListPage());
+        }
+
+        private void DobavBT_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog()
+            {
+                Filter = "*.png|*.png|*.jpeg|*.jpeg|*.jpg|*.jpg"
+            };
+            if (openFileDialog.ShowDialog().GetValueOrDefault())
+            {
+                pet.Photo = File.ReadAllBytes(openFileDialog.FileName);
+                Image.Source = new BitmapImage(new Uri(openFileDialog.FileName));
+            }
         }
     }
     }
-}
+
